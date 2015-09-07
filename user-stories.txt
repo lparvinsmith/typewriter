@@ -1,0 +1,7 @@
+As a user, I want to be able to make an account to store all my stories.
+
+I want to be able to create multiple stories and delete them if I change my mind.
+
+I want to be able to build each story section by section, with the ability to write notes for each section and upload related images.
+
+I want to be able to write my prose, save it, and be able to update it later.
