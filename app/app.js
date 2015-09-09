@@ -3,10 +3,14 @@
 
   app.config(function($routeProvider){
     $routeProvider
-      .when('/',
-            { templateUrl: 'app/views/welcome.html' } //if no changing data, still need this as template?
+      .when('/welcome',
+            {
+              controller: 'authenticationController',
+              controllerAs: 'authCtrl',
+              templateUrl: 'app/views/welcome.html'
+            }
       )
-      .when('/stories',
+      .when('/', // user's main page should be an index of all their stories
             {
               controller: 'storiesController',
               controllerAs: 'storiesCtrl',
@@ -20,7 +24,7 @@
               templateUrl: 'app/views/story.html'
             }
       )
-      .when('/section',
+      .when('/write', // this page has image uploader, and drawing functionality as modal?
             {
               controller: 'sectionController',
               controllerAs: 'secCtrl',
