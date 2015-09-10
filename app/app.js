@@ -1,7 +1,9 @@
 (function typewriterAppIIFE(){
-  var app = angular.module('typewriterApp', ['ngRoute', 'ngMessages']);
+  var app = angular.module('typewriterApp', ['ngRoute', 'ngMessages', 'ngCookies']);
 
-  app.config(function($routeProvider){
+  app.config(function($routeProvider, $httpProvider){
+    $httpProvider.defaults.withCredentials = true;
+
     $routeProvider
       .when('/welcome',
             {
@@ -17,20 +19,20 @@
               templateUrl: 'app/views/stories.html'
             }
       )
-      .when('/story',
-            {
-              controller: 'storyController',
-              controllerAs: 'storyCtrl',
-              templateUrl: 'app/views/story.html'
-            }
-      )
-      .when('/write', // this page has image uploader, and drawing functionality as modal?
-            {
-              controller: 'sectionController',
-              controllerAs: 'secCtrl',
-              templateUrl: 'app/views/section.html'
-            }
-      )
+      // .when('/story/:storyId',
+      //       {
+      //         controller: 'storyController',
+      //         controllerAs: 'storyCtrl',
+      //         templateUrl: 'app/views/story.html'
+      //       }
+      // )
+      // .when('/write/:sectionId', // this page has image uploader, and drawing functionality as modal?
+      //       {
+      //         controller: 'sectionController',
+      //         controllerAs: 'secCtrl',
+      //         templateUrl: 'app/views/section.html'
+      //       }
+      // )
       .otherwise({redirectTo: '/'});
   });
 
