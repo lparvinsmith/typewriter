@@ -1,0 +1,15 @@
+<div ng-repeat="image in writeCtrl.images">
+    {{image.truncName}} <!-- what should happen when you click -->
+</div>
+
+<img ng-src="{{writeCtrl.image}}">
+
+<form name="imageForm">
+  <input type="file" file-input-model="writeCtrl.image">
+  <button>Draw something!</button>
+</form>
+
+<form name="proseForm">
+  <textarea></textarea> <!-- populate with current prose -->
+  <button ng-click="writeCtrl.update()">Save</button>
+</form>

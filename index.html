@@ -10,7 +10,8 @@
   <body>
     <div ng-view></div>
 
-   <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -21,10 +22,14 @@
 
     <script src='app/factories/authFactory.js'></script>
     <script src='app/factories/storiesFactory.js'></script>
-    <script src='app/factories/sectionsFactory.js'></script>
+    <script src='app/factories/sectionFactory.js'></script>
+    <script src='app/factories/writeFactory.js'></script>
 
     <script src='app/controllers/authenticationController.js'></script>
     <script src='app/controllers/storiesController.js'></script>
     <script src='app/controllers/sectionsController.js'></script>
+    <script src='app/controllers/writingController.js'></script>
+
+    <script src='app/directives/fileInputModelDirective.js'></script>
   </body>
 </html>

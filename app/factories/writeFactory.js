@@ -4,25 +4,31 @@
   var writingFactory = function($http){
     var writingAPI = {};
 
-    writingAPI.getSections = function(){
-      // allow access to the list of sections
-      return  $http.get('http://localhost:3000/sections');
-    };
-
+    // PROSE
     writingAPI.getSection = function(sectionId){
       return  $http.get('http://localhost:3000/sections/' + sectionId);
-    };
-
-    writingAPI.createSection = function(section){
-      return  $http.post('http://localhost:3000/sections/', section);
     };
 
     writingAPI.updateSection = function(sectionId, section){
       return  $http.patch('http://localhost:3000/sections/' + sectionId, section);
     };
 
-    writingAPI.deleteSection = function(sectionId){
-      return  $http.delete('http://localhost:3000/sections/' + sectionId);
+    // IMAGES
+    writingAPI.getImages = function(){
+      // allow access to the list of sections
+      return  $http.get('http://localhost:3000/sections');
+    };
+
+    writingAPI.createImage = function(image){
+      return  $http.post('http://localhost:3000/sections/', image);
+    };
+
+    writingAPI.getImage = function(imageId){
+      return  $http.get('http://localhost:3000/images/' + imageId);
+    };
+
+    writingAPI.deleteImage = function(imageId){
+      return  $http.delete('http://localhost:3000/images/' + imageId);
     };
 
     return writingAPI;

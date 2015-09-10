@@ -26,13 +26,13 @@
               templateUrl: 'app/views/sections.html'
             }
       )
-      // .when('/write/:sectionId', // this page has image uploader, and drawing functionality as modal?
-      //       {
-      //         controller: 'writingController',
-      //         controllerAs: 'writeCtrl',
-      //         templateUrl: 'app/views/write.html'
-      //       }
-      // )
+      .when('/write/:sectionId', // this page has image uploader, and drawing functionality as modal?
+            {
+              controller: 'writingController',
+              controllerAs: 'writeCtrl',
+              templateUrl: 'app/views/write.html'
+            }
+      )
       .otherwise({redirectTo: '/'});
   });
 
