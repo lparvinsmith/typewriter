@@ -67,6 +67,13 @@
       });
     }
 
+    vm.delete = function(sectionId){
+      var index = findSectionIndexById(sectionId);
+      sectionsFactory.deleteSection(sectionId).then(function(){
+        vm.sections.splice(index,1);
+      })
+    }
+
     // reset the form to empty
     vm.reset = function(){
       vm.currentSection = angular.copy({});

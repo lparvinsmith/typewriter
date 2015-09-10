@@ -28,7 +28,7 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
         <input ng-model="section.overview" type="text"/> <!-- this def should be populated -->
         <button ng-click="secCtrl.update(section.id)">Update</button>
       </form>
-    <button ng-click="secCtrl.delete()">Delete</button> <!-- maybe should get 'are you sure?' -->
+    <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
   </div>
 </div>
 
