@@ -6,11 +6,31 @@
     vm.appSettings = appSettings;
     vm.sortBy = "name";
     vm.reverse = false;
+    vm.createFormShown = false;
+    vm.updatedStory = {};
+    vm.showUpdateForm = false
 
     // All the people
     vm.stories= [];
     // reflects the contents of the form, the current story
     vm.currentStory = {};
+
+    vm.toggleCreateForm = function(){
+      vm.createFormShown = !vm.createFormShown;
+    }
+
+    function findStoryIndexById(id) {
+      for (var i = 0; i < vm.stories.length; i++) {
+        if (vm.stories[i].id === id) {
+          return i;
+        }
+      }
+    }
+
+    vm.toggleUpdateForm = function(storyId){
+      var index = findStoryIndexById(storyId);
+      vm.stories[index].editForm = !vm.stories[index].editForm;
+    }
 
 
     function init(){
@@ -28,7 +48,7 @@
     //create customer in backend using API
     vm.create = function(){
       //get value from form and pass it to factory
-      storiesFactory.create(vm.currentStory)
+      storiesFactory.createStory(vm.currentStory)
       .then(function(result){
         // append resulting story to stories array
         // will automatically update list of stories in view
@@ -38,16 +58,19 @@
       })
     }
 
-    vm.update = function(){
+    vm.update = function(storyId){
       //get value from form and pass it to factory
-      storiesFactory.update(storyId, vm.currentStory)
+      var index = findStoryIndexById(storyId);
+      storiesFactory.updateStory(storyId, vm.stories[index])
       .then(function(results){
         // automatically update list of people in view
-        vm.story = (results.data);
+        vm.stories[index] = results.data;
         // clear out current person, and thus clear form
-        vm.currentStory = {};
-      })
+      });
     }
+
+    //when delete
+    // in callback use findStoryIndexById to get index and vm.stories.splice(index, 1)
 
     // reset the form to empty
     vm.reset = function(){
