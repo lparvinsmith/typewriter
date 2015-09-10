@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "1.4",
+    "angular-cookies": "~1.4.5",
     "angular-messages": "~1.4.5",
     "angular-route": "~1.4.1"
   }
