@@ -18,11 +18,11 @@ Filter: <input type="text" ng-model="storiesFilter.title"/>
     </a>
     <br>
     <form name="storyForm" class="css-form" ng-show="story.editForm">
-        <input ng-model="story.title" type="text" /> <!-- ideally this would be populated with current title -->
+        <input ng-model="story.title" type="text" />
         <button ng-click="storiesCtrl.update(story.id)">Update</button>
       </form>
     <button ng-click="storiesCtrl.toggleUpdateForm(story.id)">Edit title</button>
-    <button ng-click="storiesCtrl.delete()">Delete</button> <!-- maybe should get 'are you sure?' -->
+    <button ng-click="storiesCtrl.delete(story.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
   </div>
 </div>
 
@@ -30,4 +30,4 @@ Filter: <input type="text" ng-model="storiesFilter.title"/>
 <span>Total stories: {{storiesCtrl.stories.length}}</span>
 <br/>
 <br/>
-<footer>Version: {{ appSettings.version }}</footer>
+<footer>Version: {{ storiesCtrl.appSettings.version }}</footer>

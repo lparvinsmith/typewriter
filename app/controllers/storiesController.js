@@ -1,14 +1,14 @@
 (function storiesControllerIIFE(){
 
 
-  var StoriesController = function(storiesFactory, appSettings){
+  var StoriesController = function(storiesFactory, appSettings, $routeParams){
     var vm = this;
     vm.appSettings = appSettings;
     vm.sortBy = "name";
     vm.reverse = false;
     vm.createFormShown = false;
     vm.updatedStory = {};
-    vm.showUpdateForm = false
+    vm.showUpdateForm = false;
 
     // All the people
     vm.stories= [];
@@ -69,8 +69,12 @@
       });
     }
 
-    //when delete
-    // in callback use findStoryIndexById to get index and vm.stories.splice(index, 1)
+    vm.delete = function(storyId){
+      var index = findStoryIndexById(storyId);
+      storiesFactory.deleteStory(storyId).then(function(){
+        vm.stories.splice(index,1);
+      })
+    }
 
     // reset the form to empty
     vm.reset = function(){
