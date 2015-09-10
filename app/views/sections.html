@@ -16,15 +16,17 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
   <div>
     <a ng-hide="story.editForm" href="#/write/{{section.id}}">
     {{section.title}}
+    <br>
     {{section.overview}}
-    {{section.updated | date}}
+    <br>
+    {{section.updatedAt | date}}
     </a>
     <br>
     <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
       <form name="storyForm" class="css-form" ng-show="section.editForm">
         <input ng-model="section.title" type="text"/> <!-- ideally this would be populated with current title -->
-        <input ng-model="story.overview" type="text"/> <!-- this def should be populated -->
-        <button ng-click="storiesCtrl.update(story.id)">Update</button>
+        <input ng-model="section.overview" type="text"/> <!-- this def should be populated -->
+        <button ng-click="secCtrl.update(section.id)">Update</button>
       </form>
     <button ng-click="secCtrl.delete()">Delete</button> <!-- maybe should get 'are you sure?' -->
   </div>

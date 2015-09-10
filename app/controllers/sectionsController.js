@@ -58,6 +58,15 @@
       })
     }
 
+    vm.update = function(sectionId){
+      //get value from form and pass it to factory
+      var index = findSectionIndexById(sectionId);
+      sectionsFactory.updateSection(sectionId, vm.sections[index])
+      .then(function(results){
+        vm.sections[index] = results.data;
+      });
+    }
+
     // reset the form to empty
     vm.reset = function(){
       vm.currentSection = angular.copy({});
