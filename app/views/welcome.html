@@ -1,0 +1,6 @@
+<h1>Welcome, {{authCtrl.currentUser.name}}</h1>
+<form>
+  <input type="text" placeholder="email" ng-model="authCtrl.loginCredentials.email"/>
+  <input type="password" placeholder="password" ng-model="authCtrl.loginCredentials.password"/>
+  <button ng-click="authCtrl.login()" >Login!</button>
+</form>
