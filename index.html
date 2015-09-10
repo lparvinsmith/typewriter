@@ -10,14 +10,19 @@
   <body>
     <div ng-view></div>
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 
     <script src='app/app.js'></script>
     <script src='app/services/values.js'></script>
-    <script src='app/services/storiesFactory.js'></script>
+
+    <script src='app/factories/authFactory.js'></script>
+    <script src='app/factories/storiesFactory.js'></script>
+
+    <script src='app/controllers/authenticationController.js'></script>
     <script src='app/controllers/storiesController.js'></script>
   </body>
 </html>

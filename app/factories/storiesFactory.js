@@ -14,10 +14,16 @@
     };
 
     storiesAPI.createStory = function(story){
-      return  $http.post('http://localhost:3000/stories/', {'story': story});
+      return  $http.post('http://localhost:3000/stories/', story);
     };
 
-    //make deleteStory
+    storiesAPI.createStory = function(storyId, story){
+      return  $http.patch('http://localhost:3000/stories/' + storyId, story);
+    };
+
+    storiesAPI.deleteStory = function(storyId){
+      return  $http.delete('http://localhost:3000/stories/' + storyId);
+    };
 
     return storiesAPI;
   };

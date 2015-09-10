@@ -1,0 +1,28 @@
+<!-- Show all of user's stories -->
+<hr>
+<br/>
+<h1>{{storiesCtrl}}</h1>
+Filter: <input type="text" ng-model="storiesFilter.title"/>
+<br/>
+<!-- on click, reveals form -->
+<button ng-model="isShown">Start a new story</button>
+<form name="storyForm" class="css-form" ng-show="isShown">
+  <input type="text" placeholder="Title"/>
+</form>
+<div ng-repeat="story in storiesCtrl.stories | filter: storiesFilter">
+<!-- order by most recendly updated - but would need most recently updated SECTION or IMAGE, not story here's the syntax from custApp:  | orderBy:custCtrl.sortBy:custCtrl.reverse -->
+  <div>
+    <a href="#/story/{{story.id}}">
+    {{story.title}}
+    {{story.updated | date}}
+    <button>Edit title</button>
+    <button>Delete</button>
+    </a>
+  </div>
+</div>
+
+<br/>
+<span>Total stories: {{storiesCtrl.stories.length}}</span>
+<br/>
+<br/>
+<footer>Version: {{ appSettings.version }}</footer>
