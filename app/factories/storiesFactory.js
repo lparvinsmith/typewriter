@@ -17,7 +17,7 @@
       return  $http.post('http://localhost:3000/stories/', story);
     };
 
-    storiesAPI.createStory = function(storyId, story){
+    storiesAPI.updateStory = function(storyId, story){
       return  $http.patch('http://localhost:3000/stories/' + storyId, story);
     };
 

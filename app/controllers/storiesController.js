@@ -38,9 +38,20 @@
       })
     }
 
+    vm.update = function(){
+      //get value from form and pass it to factory
+      storiesFactory.update(storyId, vm.currentStory)
+      .then(function(results){
+        // automatically update list of people in view
+        vm.story = (results.data);
+        // clear out current person, and thus clear form
+        vm.currentStory = {};
+      })
+    }
+
     // reset the form to empty
     vm.reset = function(){
-      vm.currentCustomer = angular.copy({});
+      vm.currentStory = angular.copy({});
     };
 
     // start off with a reset form

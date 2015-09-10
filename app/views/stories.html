@@ -1,22 +1,27 @@
 <!-- Show all of user's stories -->
 <hr>
 <br/>
-<h1>{{storiesCtrl}}</h1>
 Filter: <input type="text" ng-model="storiesFilter.title"/>
 <br/>
 <!-- on click, reveals form -->
-<button ng-model="isShown">Start a new story</button>
-<form name="storyForm" class="css-form" ng-show="isShown">
+<button ng-model="showCreate">Start a new story</button>
+<form name="storyForm" class="css-form" ng-show="showCreate">
   <input type="text" placeholder="Title"/>
+  <button ng-click="storiesCtrl.create()">Create</button>
 </form>
 <div ng-repeat="story in storiesCtrl.stories | filter: storiesFilter">
-<!-- order by most recendly updated - but would need most recently updated SECTION or IMAGE, not story here's the syntax from custApp:  | orderBy:custCtrl.sortBy:custCtrl.reverse -->
+<!-- order by most recently updated - but would need most recently updated SECTION or IMAGE, not story here's the syntax from custApp:  | orderBy:custCtrl.sortBy:custCtrl.reverse -->
   <div>
-    <a href="#/story/{{story.id}}">
+    <a href="#/story/{{story.id}}"> <!-- or ng-click="storiesCtrl.getStory({{story.id}})" -->
     {{story.title}}
     {{story.updated | date}}
-    <button>Edit title</button>
-    <button>Delete</button>
+    <br>
+    <button ng-model="showUpdate">Edit title</button>
+      <form name="storyForm" class="css-form" ng-show="showUpdate">
+        <input type="text" placeholder="Title"/> <!-- ideally this would be populated with current title -->
+        <button ng-click="storiesCtrl.update()">Update</button>
+      </form>
+    <button ng-click="storiesCtrl.delete()">Delete</button> <!-- maybe should get 'are you sure?' -->
     </a>
   </div>
 </div>

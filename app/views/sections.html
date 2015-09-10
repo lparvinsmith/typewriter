@@ -1,0 +1,37 @@
+<!-- Show all of story's sections-->
+<hr>
+<br/>
+<h1>{{secCtrl}}</h1>
+Filter: <input type="text" ng-model="sectionFilter.title"/>
+<br/>
+<!-- on click, reveals form -->
+<button ng-model="showCreate">Start a new section</button>
+<form name="storyForm" class="css-form" ng-show="showCreate">
+  <input type="text" placeholder="Title"/>
+  <textarea placeholder="Overview"></textarea>
+  <button ng-click="secCtrl.create()">Create</button>
+</form>
+<div ng-repeat="section in secCtrl.sections | filter: sectionFilter">
+<!-- order by most recently updated - but would need most recently updated SECTION or IMAGE, not story here's the syntax from custApp:  | orderBy:custCtrl.sortBy:custCtrl.reverse -->
+  <div>
+    <a ng-click="secCtrl.getSection({{section.id}})"> <!-- or href="#/sections/{{section.id}}" -->
+    {{section.title}}
+    {{section.overview}}
+    {{section.updated | date}}
+    <br>
+    <button ng-model="showUpdate">Edit</button>
+      <form name="storyForm" class="css-form" ng-show="showUpdate">
+        <input type="text" placeholder="Title"/> <!-- ideally this would be populated with current title -->
+        <input type="text" placeholder="Overview"/> <!-- this def should be populated -->
+        <button ng-click="secCtrl.update()">Update</button>
+      </form>
+    <button ng-click="secCtrl.delete()">Delete</button> <!-- maybe should get 'are you sure?' -->
+    </a>
+  </div>
+</div>
+
+<br/>
+<span>Total sections: {{secCtrl.sections.length}}</span>
+<br/>
+<br/>
+<footer>Version: {{ appSettings.version }}</footer>

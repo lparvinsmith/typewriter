@@ -19,18 +19,18 @@
               templateUrl: 'app/views/stories.html'
             }
       )
-      // .when('/story/:storyId',
-      //       {
-      //         controller: 'storyController',
-      //         controllerAs: 'storyCtrl',
-      //         templateUrl: 'app/views/story.html'
-      //       }
-      // )
+      .when('/story/:storyId',
+            {
+              controller: 'sectionsController',
+              controllerAs: 'secCtrl',
+              templateUrl: 'app/views/sections.html'
+            }
+      )
       // .when('/write/:sectionId', // this page has image uploader, and drawing functionality as modal?
       //       {
-      //         controller: 'sectionController',
-      //         controllerAs: 'secCtrl',
-      //         templateUrl: 'app/views/section.html'
+      //         controller: 'writingController',
+      //         controllerAs: 'writeCtrl',
+      //         templateUrl: 'app/views/write.html'
       //       }
       // )
       .otherwise({redirectTo: '/'});
