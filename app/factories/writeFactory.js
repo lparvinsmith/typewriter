@@ -10,12 +10,13 @@
     };
 
     writingAPI.updateProse = function(sectionId, prose){
+      var prose = {prose: prose};
       return  $http.patch('http://localhost:3000/sections/' + sectionId, prose);
     };
 
     // IMAGES
-    writingAPI.createImage = function(image){
-      return  $http.post('http://localhost:3000/sections/', image);
+    writingAPI.createImage = function(sectionId, image){
+      return  $http.post('http://localhost:3000/sections/' +sectionId, image);
     };
 
     writingAPI.getImage = function(imageId){

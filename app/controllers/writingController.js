@@ -11,6 +11,18 @@
     vm.images = [];
     vm.currentImage = {};
 
+    vm.toggleDrawForm = function(){
+      vm.drawFormShown = !vm.drawFormShown;
+    }
+
+    vm.toggleImage = function(id){
+      for (var i = 0; i < vm.images.length; i++) {
+        if (vm.images[i].id === id) {
+          vm.images[i].shown = !vm.images[i].shown
+        }
+      }
+    }
+
     function init(){
       writingFactory.getSection(sectionId)
       .then(function(result){
@@ -29,13 +41,26 @@
       //get value from form and pass it to factory
       writingFactory.updateProse(sectionId, vm.prose)
       .then(function(results){
-        vm.prose = results.data;
+        vm.prose = results.data.prose;
       });
     }
 
     vm.create = function(){
       //get value from form and pass it to factory
-      writingFactory.createImage(sectionId, vm.currentImage)
+      debugger;
+      writingFactory.createImage(sectionId, {file: vm.image})
+      .then(function(result){
+        // append resulting story to sections array
+        vm.images.push(result.data);
+        // clear form
+        vm.currentImage = {};
+      })
+    }
+
+    vm.createDrawing = function(){
+      var canvas = document.getElementById('colors_sketch');
+      var image = {file: canvas.toDataURL()};
+      writingFactory.createImage(sectionId, image)
       .then(function(result){
         // append resulting story to sections array
         vm.images.push(result.data);

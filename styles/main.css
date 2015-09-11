@@ -1,0 +1,15 @@
+#image-div {
+  position: relative;
+  float: right;
+}
+canvas {
+  border: 5px solid black;
+}
+
+.thumbnail {
+  width: 50px;
+}
+
+.show-image {
+  width: 400px;
+}
