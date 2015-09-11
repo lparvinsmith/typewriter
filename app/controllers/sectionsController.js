@@ -10,7 +10,6 @@
     vm.updatedSection = {};
     vm.showUpdateForm = false;
 
-    // All the people
     vm.sections= [];
     // reflects the contents of the form, the current section
     vm.currentSection = {};
@@ -45,15 +44,13 @@
 
     init();
 
-    //create customer in backend using API
     vm.create = function(){
       //get value from form and pass it to factory
       sectionsFactory.createSection(storyId, vm.currentSection)
       .then(function(result){
-        // append resulting story to stories array
-        // will automatically update list of stories in view
+        // append resulting section to sections array
         vm.sections.push(result.data);
-        // clear out current person, and thus clear form
+        // clear form
         vm.currentSection = {};
       })
     }

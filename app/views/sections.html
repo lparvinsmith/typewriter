@@ -10,8 +10,8 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
   <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview"></textarea>
   <button ng-click="secCtrl.create()">Create</button>
 </form>
+
 <div ng-repeat="section in secCtrl.sections | filter: sectionFilter">
-<!-- order by most recently updated here's the syntax from custApp:  | orderBy:custCtrl.sortBy:custCtrl.reverse -->
   <div>
     <a ng-hide="story.editForm" href="#/write/{{section.id}}">
     {{section.title}}
@@ -23,8 +23,8 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
     <br>
     <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
       <form name="storyForm" class="css-form" ng-show="section.editForm">
-        <input ng-model="section.title" type="text"/> <!-- ideally this would be populated with current title -->
-        <input ng-model="section.overview" type="text"/> <!-- this def should be populated -->
+        <input ng-model="section.title" type="text"/>
+        <input ng-model="section.overview" type="text"/>
         <button ng-click="secCtrl.update(section.id)">Update</button>
       </form>
     <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
@@ -35,4 +35,4 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
 <span>Total sections: {{secCtrl.sections.length}}</span>
 <br/>
 <br/>
-<footer>Version: {{ appSettings.version }}</footer>
+<footer>Version: {{ secCtrl.appSettings.version }}</footer>
