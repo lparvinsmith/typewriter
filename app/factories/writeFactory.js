@@ -9,16 +9,11 @@
       return  $http.get('http://localhost:3000/sections/' + sectionId);
     };
 
-    writingAPI.updateSection = function(sectionId, section){
-      return  $http.patch('http://localhost:3000/sections/' + sectionId, section);
+    writingAPI.updateProse = function(sectionId, prose){
+      return  $http.patch('http://localhost:3000/sections/' + sectionId, prose);
     };
 
     // IMAGES
-    writingAPI.getImages = function(){
-      // allow access to the list of sections
-      return  $http.get('http://localhost:3000/sections');
-    };
-
     writingAPI.createImage = function(image){
       return  $http.post('http://localhost:3000/sections/', image);
     };

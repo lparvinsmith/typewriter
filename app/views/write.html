@@ -1,15 +1,23 @@
-<div ng-repeat="image in writeCtrl.images">
-    {{image.truncName}} <!-- what should happen when you click -->
+<h3>{{writeCtrl}}</h3>
+<div id="prose-div">
+  <form name="proseForm">
+    <textarea id="prose-text" ng-model="writeCtrl.prose"></textarea> <!-- populate with current prose -->
+    <button ng-click="writeCtrl.update(writeCtrl.sectionId)">Save</button>
+  </form>
 </div>
 
-<img ng-src="{{writeCtrl.image}}">
+<div id="image-div">
+  <div ng-repeat="image in writeCtrl.images">
+      {{image.location}}
+      <!-- how to view when you click? -->
+      <!-- truncate filepath to display? -->
+  </div>
 
-<form name="imageForm">
-  <input type="file" file-input-model="writeCtrl.image">
-  <button>Draw something!</button>
-</form>
+  <img ng-src="{{writeCtrl.image}}">
 
-<form name="proseForm">
-  <textarea></textarea> <!-- populate with current prose -->
-  <button ng-click="writeCtrl.update()">Save</button>
-</form>
+  <form name="imageForm">
+    <input type="file" file-input-model="writeCtrl.image">
+    <button ng-click="writeCtrl.create(writeCtrl.image)">Save image</button>
+    <button>Draw something!</button>
+  </form>
+<div>
