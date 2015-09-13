@@ -1,3 +1,30 @@
+/* WELCOME PAGE */
+.jumbotron{
+  background-image: url('../images/typewriter.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+#welcome-text{
+  background-color: rgba(242,230,182,0.7);
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 400px;
+}
+
+#how-typewriter{
+  text-align: center;
+}
+
+#login{
+
+}
+
+#signup{
+
+}
+
+/* WRITE PAGE */
 #image-div {
   position: relative;
   float: right;
