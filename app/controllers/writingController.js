@@ -28,6 +28,7 @@
       .then(function(result){
         vm.prose = result.data.section.prose;
         vm.images = result.data.section.images;
+        vm.title = result.data.section.title;
       }, function(data, status, headers, config){
         console.log("Error getting section from the api");
         alert("Error getting section from the api");
@@ -47,7 +48,6 @@
 
     vm.create = function(){
       //get value from form and pass it to factory
-      debugger;
       writingFactory.createImage(sectionId, {file: vm.image})
       .then(function(result){
         // append resulting story to sections array

@@ -36,6 +36,7 @@
       sectionsFactory.getSections(storyId)
       .then(function(result){
         vm.sections = result.data.story.sections;
+        vm.title = result.data.story.title;
       }, function(data, status, headers, config){
         console.log("Error getting sections from the api");
         alert("Error getting sections from the api");

@@ -1,13 +1,13 @@
 <!-- Show all of story's sections-->
-<hr>
+<h3>{{secCtrl.title}}</h3>
 <br/>
-Filter: <input type="text" ng-model="sectionFilter.title"/>
+Search for section by title: <input type="text" ng-model="sectionFilter.title"/>
 <br/>
 <!-- on click, reveals form -->
 <button ng-click="secCtrl.toggleCreateForm()">Start a new section</button>
 <form name="sectionForm" class="css-form" ng-show="secCtrl.createFormShown">
-  <input ng-model="secCtrl.currentSection.title" type="text" placeholder="Title"/>
-  <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview"></textarea>
+  <input ng-model="secCtrl.currentSection.title" type="text" placeholder="Title"/><br>
+  <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview" rows="4" cols="50"></textarea>
   <button ng-click="secCtrl.create()">Create</button>
 </form>
 
@@ -23,8 +23,8 @@ Filter: <input type="text" ng-model="sectionFilter.title"/>
     <br>
     <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
       <form name="storyForm" class="css-form" ng-show="section.editForm">
-        <input ng-model="section.title" type="text"/>
-        <input ng-model="section.overview" type="text"/>
+        <input ng-model="section.title" type="text"/><br>
+        <textarea ng-model="section.overview" rows="4" cols="50"/></textarea>
         <button ng-click="secCtrl.update(section.id)">Update</button>
       </form>
     <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
