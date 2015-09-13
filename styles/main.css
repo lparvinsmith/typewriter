@@ -14,14 +14,14 @@
 
 #how-typewriter{
   text-align: center;
+  padding-bottom: 50px;
+  line-height: 200%;
 }
 
-#login{
-
-}
-
-#signup{
-
+#login, #signup{
+  border: 2px solid black;
+  width: 300px;
+  text-align: center;
 }
 
 /* WRITE PAGE */
