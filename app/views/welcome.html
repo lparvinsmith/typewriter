@@ -1,14 +1,17 @@
+<div id="welcome-partial" data-spy="scroll" data-target="welcome-text">
 <div class="jumbotron">
   <div id="welcome-text">
     <h1>Welcome to Typewriter</h1>
     <h3>Write simply, draw freely.</h3>
-    <button class="btn btn-default">Log in</button><span> to continue your story</span><br>
-    <button class="btn btn-default">Sign up</button><span> to get started for free</span>
+    <div class="nav">
+      <button class="btn btn-default" data-scroll href="#login">Log in</button><span> to continue your story</span><br>
+      <button class="btn btn-default" data-scroll href="#signup">Sign up</button><span> to get started for free</span>
+    </div>
   </div>
 </div>
 
 <div id="how-typewriter">
-  <h3>How does Typewriter work?</h3><br>
+  <h2>How does Typewriter work?</h2><br>
   <span class="glyphicon glyphicon-book"aria-hidden="true"></span>
   <span>Write your story in pieces</span>
   <p></p>
@@ -26,7 +29,7 @@
   <p></p>
 </div>
 
-<div class="row">
+<div class="row" id="authentication">
   <div id="login" class="col-md-2 col-md-offset-3">
     <form name="loginForm" class="css-form">
       <legend>Please log in:</legend>
@@ -34,7 +37,7 @@
       <br>
       <input type="password" placeholder="password" ng-model="authCtrl.loginCredentials.password"/>
       <br>
-      <button ng-click="authCtrl.login()">Login!</button>
+      <button ng-click="authCtrl.login()" class="btn btn-default">Login</button>
     </form>
   </div>
 
@@ -59,7 +62,8 @@
           <span ng-message="maxlength">Your name is too long.</span>
           <span ng-message="required">Your name is required.</span>
         </div>
-      <button ng-click="authCtrl.signup()">Sign up!</button>
+      <button ng-click="authCtrl.signup()" class="btn btn-default">Sign up</button>
     </form>
   </div>
+</div>
 </div>

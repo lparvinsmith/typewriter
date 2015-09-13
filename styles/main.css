@@ -1,3 +1,6 @@
+body{
+  font-family: 'Quattrocento', serif;
+}
 /* WELCOME PAGE */
 .jumbotron{
   background-image: url('../images/typewriter.jpg');
@@ -12,16 +15,34 @@
   margin-top: 400px;
 }
 
+#welcome-text button {
+  margin: 10px 0px;
+}
+
 #how-typewriter{
   text-align: center;
   padding-bottom: 50px;
   line-height: 200%;
 }
 
+.glyphicon{
+  font-size: 3em;
+  margin-top: 15px;
+  margin-right: 20px;
+  background-color: rgba(242,230,182,1);
+  padding: 10px;
+  border-radius: 50px;
+}
+
 #login, #signup{
-  border: 2px solid black;
+  border: 4px solid black;
   width: 300px;
   text-align: center;
+}
+
+#authentication{
+  background-color: rgba(242,230,182,1);
+  padding: 50px;
 }
 
 /* WRITE PAGE */
