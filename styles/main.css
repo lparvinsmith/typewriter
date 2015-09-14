@@ -45,6 +45,25 @@ body{
   padding: 50px;
 }
 
+/* STORIES PAGE */
+#stories-partial{
+  text-align: center;
+}
+
+#stories-partial h2{
+  padding-bottom: 20px;
+}
+
+.each-story{
+  height: 220px;
+  width: 200px;
+  border: 2px solid black;
+  float: left;
+  margin: 50px;
+  font-size: 24px;
+}
+
+
 /* WRITE PAGE */
 #image-div {
   position: relative;
