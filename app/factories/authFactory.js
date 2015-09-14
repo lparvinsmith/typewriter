@@ -3,13 +3,15 @@
 
 (function authFactoryIIFE(){
 
+  var sa = 'https://limitless-basin-7360.herokuapp.com';
+
   var authFactory = function($http){
     var userApi = {};
     userApi.currentUser = {};
 
     //post to sign in
     userApi.signup = function (credentials){
-      return $http.post('http://localhost:3000/signup', credentials).then(function(response){
+      return $http.post(sa + '/signup', credentials).then(function(response){
         angular.copy(response.data, userApi.currentUser);
       }).catch(function(err){
         console.error(err);
@@ -17,7 +19,7 @@
     }
     //post to login
     userApi.login = function (credentials){
-      return $http.post('http://localhost:3000/login', credentials).then(function(response){
+      return $http.post(sa + '/login', credentials).then(function(response){
         console.log(response);
         angular.copy(response.data, userApi.currentUser);
       }).catch(function(err){

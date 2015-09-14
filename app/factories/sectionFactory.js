@@ -1,28 +1,30 @@
 (function sectionsFactoryIIFE(){
 
+  var sa = 'https://limitless-basin-7360.herokuapp.com';
+
   // Create a sections factory
   var sectionsFactory = function($http){
     var sectionsAPI = {};
 
     sectionsAPI.getSections = function(storyId){
       // allow access to the list of sections
-      return  $http.get('http://localhost:3000/stories/' + storyId);
+      return  $http.get(sa + '/stories/' + storyId);
     };
 
     sectionsAPI.createSection = function(storyId, section){
-      return  $http.post('http://localhost:3000/stories/'+ storyId, section);
+      return  $http.post(sa + '/stories/'+ storyId, section);
     };
 
     sectionsAPI.getSection = function(sectionId){
-      return  $http.get('http://localhost:3000/sections/' + sectionId);
+      return  $http.get(sa + '/sections/' + sectionId);
     };
 
     sectionsAPI.updateSection = function(sectionId, section){
-      return  $http.patch('http://localhost:3000/sections/' + sectionId, section);
+      return  $http.patch(sa + '/sections/' + sectionId, section);
     };
 
     sectionsAPI.deleteSection = function(sectionId){
-      return  $http.delete('http://localhost:3000/sections/' + sectionId);
+      return  $http.delete(sa + '/sections/' + sectionId);
     };
 
     return sectionsAPI;
