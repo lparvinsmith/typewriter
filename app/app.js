@@ -34,6 +34,12 @@
             }
       )
       .otherwise({redirectTo: '/'});
-  });
+  }).run(function(authFactory, $location){ // $location gets path of where user is in app
+    var routesWithoutAuth = ['/welcome'];
+    var index = routesWithoutAuth.indexOf($location.path());
+    if (!authFactory.isLoggedIn() && index === -1 ){ // if user not logged in, and at page not in array, redirect
+      $location.path('/welcome');
+    }
+  })
 
 })();

@@ -12,21 +12,23 @@
 
 <div id="how-typewriter">
   <h2>How does Typewriter work?</h2><br>
-  <span class="glyphicon glyphicon-book"aria-hidden="true"></span>
-  <span>Write your story in pieces</span>
-  <p></p>
-  <span class="glyphicon glyphicon-list"aria-hidden="true"></span>
-  <span>Make an outline to organize your thoughts</span>
-  <p></p>
-  <span class="glyphicon glyphicon-pencil"aria-hidden="true"></span>
-  <span>Draw your ideas</span>
-  <p></p>
-  <span class="glyphicon glyphicon-picture"aria-hidden="true"></span>
-  <span>Upload images that inspire</span>
-  <p></p>
-  <span class="glyphicon glyphicon-grain"aria-hidden="true"></span>
-  <span>Give your creative side the freedom it deserves</span>
-  <p></p>
+  <div id="app-functions">
+    <span class="glyphicon glyphicon-book"aria-hidden="true"></span>
+    <span>Write your story in pieces</span>
+    <br>
+    <span class="glyphicon glyphicon-list"aria-hidden="true"></span>
+    <span>Make an outline to organize your thoughts</span>
+    <br>
+    <span class="glyphicon glyphicon-pencil"aria-hidden="true"></span>
+    <span>Draw your ideas</span>
+    <br>
+    <span class="glyphicon glyphicon-picture"aria-hidden="true"></span>
+    <span>Upload images that inspire</span>
+    <br>
+    <span class="glyphicon glyphicon-grain"aria-hidden="true"></span>
+    <span>Give your creative side the freedom it deserves</span>
+    <br>
+  </div>
 </div>
 
 <div class="row" id="authentication">
@@ -37,7 +39,7 @@
       <br>
       <input type="password" placeholder="password" ng-model="authCtrl.loginCredentials.password"/>
       <br>
-      <button ng-click="authCtrl.login()" class="btn btn-default">Login</button>
+      <button ng-click="authCtrl.login()" class="btn btn-default auth-button">Login</button>
     </form>
   </div>
 
@@ -62,8 +64,9 @@
           <span ng-message="maxlength">Your name is too long.</span>
           <span ng-message="required">Your name is required.</span>
         </div>
-      <button ng-click="authCtrl.signup()" class="btn btn-default">Sign up</button>
+      <button ng-click="authCtrl.signup()" class="btn btn-default auth-button">Sign up</button>
     </form>
   </div>
+  <button ng-click="authCtrl.logout()" class="btn btn-default auth-button">Log out</button>
 </div>
 </div>

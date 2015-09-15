@@ -14,6 +14,10 @@
       authFactory.signup(vm.signupCredentials);
     };
 
+    vm.logout = function(){
+      authFactory.logout();
+    }
+
   }
 
   AuthenticationController.$inject= ["authFactory"];
