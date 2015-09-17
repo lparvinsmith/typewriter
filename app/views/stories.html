@@ -1,10 +1,14 @@
 <div id="stories-partial">
-  <h2>Your stories:</h2>
-  Search by title: <input type="text" ng-model="storiesFilter.title"/>
-  <br/>
+  <div id="stories-heading">
+    <h2>Your stories</h2>
+    <hr>
+    <h3>Total stories in progress: {{storiesCtrl.stories.length}}</h3>
+    Search for story by title: <input type="text" ng-model="storiesFilter.title"/>
+    <hr>
+  </div>
   <!-- on click, reveals form -->
   <button ng-click="storiesCtrl.toggleCreateForm()" class="btn btn-default">Start a new story</button>
-  <form name="storyForm" class="css-form" ng-show="storiesCtrl.createFormShown">
+  <form name="storyForm" id="create-form" class="css-form" ng-show="storiesCtrl.createFormShown">
     <input ng-model="storiesCtrl.currentStory.title" type="text" placeholder="Title"/>
     <button ng-click="storiesCtrl.create()" class="btn btn-default">Create</button>
   </form>
@@ -15,20 +19,21 @@
       <div class="each-story">
         <a ng-hide="story.editForm" href="#/story/{{story.id}}">
         {{story.title}}
-        {{story.updated | date}}
+        <!-- {{story.updated | date}} -->
         </a>
         <br>
         <form name="storyForm" class="css-form" ng-show="story.editForm">
-            <input ng-model="story.title" type="text" />
-            <button ng-click="storiesCtrl.update(story.id)" class="btn btn-default">Update</button>
-          </form>
-        <button ng-click="storiesCtrl.toggleUpdateForm(story.id)" class="btn btn-default">Edit title</button>
-        <button ng-click="storiesCtrl.delete(story.id)" class="btn btn-default">Delete</button> <!-- maybe should get 'are you sure?' -->
+          <input ng-model="story.title" type="text" />
+          <button ng-click="storiesCtrl.update(story.id)" class="btn btn-default">Update</button>
+        </form>
+        <div class="stories-buttons">
+          <button ng-click="storiesCtrl.toggleUpdateForm(story.id)" class="btn btn-default">Edit title</button>
+          <button ng-click="storiesCtrl.delete(story.id)" class="btn btn-default">Delete</button> <!-- maybe should get 'are you sure?' -->
+        </div>
       </div>
     </div>
   </div>
 
   <br/>
-  <p>Total stories: {{storiesCtrl.stories.length}}</p>
   <footer>Version: {{ storiesCtrl.appSettings.version }}</footer>
 </div>

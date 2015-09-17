@@ -22,11 +22,15 @@ body{
 #how-typewriter{
   text-align: center;
   padding-bottom: 50px;
-  line-height: 200%;
+}
+
+#app-functions{
+  font-size: 18px;
+  line-height: 400%;
 }
 
 .glyphicon{
-  font-size: 3em;
+  font-size: 2em;
   margin-top: 15px;
   margin-right: 20px;
   background-color: rgba(242,230,182,1);
@@ -45,13 +49,25 @@ body{
   padding: 50px;
 }
 
+.auth-button{
+  margin: 10px;
+}
+
 /* STORIES PAGE */
 #stories-partial{
   text-align: center;
 }
 
 #stories-partial h2{
-  padding-bottom: 20px;
+  padding: 20px;
+}
+
+#stories-header {
+  margin: 30px;
+}
+
+#stories-row {
+  background-color: rgb(242,230,182);
 }
 
 .each-story{
@@ -61,6 +77,12 @@ body{
   float: left;
   margin: 50px;
   font-size: 24px;
+  background-color: white;
+}
+
+#create-form{
+  background-color: rgb(242,230,182);
+  padding: 30px;
 }
 
 

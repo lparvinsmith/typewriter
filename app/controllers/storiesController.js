@@ -39,7 +39,6 @@
         vm.stories = result.data;
       }, function(data, status, headers, config){
         console.log("Error getting stories from the api");
-        alert("Error getting stories from the api");
       });
     }
 
