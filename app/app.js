@@ -1,7 +1,7 @@
 (function typewriterAppIIFE(){
   var app = angular.module('typewriterApp', ['ngRoute', 'ngMessages', 'ngCookies']);
 
-  app.config(function($routeProvider, $httpProvider){
+  app.config(function($routeProvider, $httpProvider, authFactoryProvider){
     $httpProvider.defaults.withCredentials = true;
 
     $routeProvider
@@ -34,6 +34,9 @@
             }
       )
       .otherwise({redirectTo: '/'});
+
+      authFactoryProvider.$get().getCurrentUser();
+
   }).run(function(authFactory, $location){ // $location gets path of where user is in app
     var routesWithoutAuth = ['/welcome'];
     var index = routesWithoutAuth.indexOf($location.path());

@@ -4,11 +4,12 @@
     <title>Typewriter</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link href='https://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
 
   <body>
+    <typ-navbar></typ-navbar>
     <div ng-view></div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
@@ -31,7 +32,9 @@
     <script src='app/controllers/storiesController.js'></script>
     <script src='app/controllers/sectionsController.js'></script>
     <script src='app/controllers/writingController.js'></script>
+    <script src='app/controllers/navbarController.js'></script>
 
     <script src='app/directives/fileInputModelDirective.js'></script>
+    <script src='app/directives/navbarDirective.js'></script>
   </body>
 </html>
