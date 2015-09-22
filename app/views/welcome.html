@@ -1,18 +1,17 @@
-<div id="welcome-partial" data-spy="scroll" data-target="welcome-text">
 <div class="jumbotron">
   <div id="welcome-text">
     <h1>Welcome to Typewriter</h1>
     <h3>Write simply, draw freely.</h3>
     <div class="nav">
-      <button class="btn btn-default" data-scroll href="#login">Log in</button><span> to continue your story</span><br>
-      <button class="btn btn-default" data-scroll href="#signup">Sign up</button><span> to get started for free</span>
+      <a class="btn btn-default" href='#/welcome#authentication'>Log in</a><span> to continue your story</span><br>
+      <a class="btn btn-default" href='#/welcome#authentication'>Sign up</a><span> to get started for free</span>
     </div>
   </div>
 </div>
 
-<div id="how-typewriter">
+<div class="row" id="how-typewriter">
   <h2>How does Typewriter work?</h2><br>
-  <div id="app-functions">
+  <div id="app-functions" class="col-md-6 col-md-offset-3">
     <span class="glyphicon glyphicon-book"aria-hidden="true"></span>
     <span>Write your story in pieces</span>
     <br>
@@ -32,6 +31,7 @@
 </div>
 
 <div class="row" id="authentication">
+  <a name="authentication"></a>
   <div id="login" class="col-md-2 col-md-offset-3">
     <form name="loginForm" class="css-form">
       <legend>Please log in:</legend>
@@ -67,6 +67,4 @@
       <button ng-click="authCtrl.signup()" class="btn btn-default auth-button">Sign up</button>
     </form>
   </div>
-  <button ng-click="authCtrl.logout()" class="btn btn-default auth-button">Log out</button>
-</div>
 </div>
