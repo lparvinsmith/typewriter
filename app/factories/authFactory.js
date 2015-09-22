@@ -3,8 +3,8 @@
 
 (function authFactoryIIFE(){
 
-  // var sa = 'https://limitless-basin-7360.herokuapp.com';
-  var sa = 'http://localhost:3000';
+  var sa = 'https://limitless-basin-7360.herokuapp.com';
+  // var sa = 'http://localhost:3000';
 
   var authFactory = function($http, $cookies, $location){
     var userApi = {};
