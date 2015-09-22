@@ -14,7 +14,8 @@
     userApi.signup = function (credentials){
       return $http.post(sa + '/signup', credentials).then(function(response){
         angular.copy(response.data, userApi.currentUser);
-        localStorage['logged-in'] = 'true';
+        console.log("Thanks for signing up! Please log in to continue");
+        alert("Thanks for signing up! Please log in to continue");
       }).catch(function(err){
         console.error(err);
       });
