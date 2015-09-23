@@ -84,11 +84,18 @@ body{
   margin: 50px;
   font-size: 24px;
   background-color: white;
+  position: relative;
 }
 
 #create-story-form{
   background-color: rgb(242,230,182);
   padding: 30px;
+}
+
+.stories-buttons{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 /* SECTIONS PAGE */

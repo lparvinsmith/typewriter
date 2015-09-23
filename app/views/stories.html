@@ -8,7 +8,7 @@
   </div>
   <!-- on click, reveals form -->
   <button ng-click="storiesCtrl.toggleCreateForm()" class="btn btn-default">Start a new story</button>
-  <form name="storyForm" id="create-form" class="css-form" ng-show="storiesCtrl.createFormShown">
+  <form name="storyForm" id="create-story-form" class="css-form" ng-show="storiesCtrl.createFormShown">
     <input ng-model="storiesCtrl.currentStory.title" type="text" placeholder="Title"/>
     <button ng-click="storiesCtrl.create()" class="btn btn-default">Create</button>
   </form>
