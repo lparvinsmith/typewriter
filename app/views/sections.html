@@ -1,38 +1,42 @@
-<!-- Show all of story's sections-->
-<h3>{{secCtrl.title}}</h3>
-<br/>
-Search for section by title: <input type="text" ng-model="sectionFilter.title"/>
-<br/>
-<!-- on click, reveals form -->
-<button ng-click="secCtrl.toggleCreateForm()">Start a new section</button>
-<form name="sectionForm" class="css-form" ng-show="secCtrl.createFormShown">
-  <input ng-model="secCtrl.currentSection.title" type="text" placeholder="Title"/><br>
-  <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview" rows="4" cols="50"></textarea>
-  <button ng-click="secCtrl.create()">Create</button>
-</form>
-
-<div ng-repeat="section in secCtrl.sections | filter: sectionFilter">
-  <div>
-    <a ng-hide="story.editForm" href="#/write/{{section.id}}">
-    {{section.title}}
-    <br>
-    {{section.overview}}
-    <br>
-    {{section.updatedAt | date}}
-    </a>
-    <br>
-    <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
-      <form name="storyForm" class="css-form" ng-show="section.editForm">
-        <input ng-model="section.title" type="text"/><br>
-        <textarea ng-model="section.overview" rows="4" cols="50"/></textarea>
-        <button ng-click="secCtrl.update(section.id)">Update</button>
-      </form>
-    <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
+<div id="sections-partial">
+  <div id="stories-heading">
+    <h2>{{secCtrl.title}}</h2>
+    <hr>
+    <h3>Total sections: {{secCtrl.sections.length}}</h3>
+    Search for section by title: <input type="text" ng-model="sectionFilter.title"/>
+    <hr>
   </div>
-</div>
 
-<br/>
-<span>Total sections: {{secCtrl.sections.length}}</span>
-<br/>
-<br/>
-<footer>Version: {{ secCtrl.appSettings.version }}</footer>
+  <!-- on click, reveals form -->
+  <button ng-click="secCtrl.toggleCreateForm()">Start a new section</button>
+  <form name="sectionForm" class="css-form" ng-show="secCtrl.createFormShown">
+    <input ng-model="secCtrl.currentSection.title" type="text" placeholder="Title"/><br>
+    <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview" rows="4" cols="50"></textarea><br>
+    <button ng-click="secCtrl.create()">Create</button>
+  </form>
+
+  <div class="row" id="sections-row">
+    <div ng-repeat="section in secCtrl.sections | filter: sectionFilter">
+      <div class="each-section">
+        <a ng-hide="story.editForm" href="#/write/{{section.id}}">
+        <p class="section-title">{{section.title | uppercase }}</p>
+        <br>
+        <p>{{section.overview}}</p>
+        <br>
+        <p>Updated: {{section.updatedAt | date}}</p>
+        </a>
+        <br>
+        <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
+          <form name="storyForm" class="css-form" ng-show="section.editForm">
+            <input ng-model="section.title" type="text"/><br>
+            <textarea ng-model="section.overview" rows="4" cols="50"/></textarea><br>
+            <button ng-click="secCtrl.update(section.id)">Update</button><br>
+          </form>
+        <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
+      </div>
+    </div>
+  </div>
+
+  <br/>
+  <footer>Version: {{ secCtrl.appSettings.version }}</footer>
+</div>

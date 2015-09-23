@@ -1,11 +1,15 @@
 body{
-  margin-top: 50px;
+  padding-top: 50px;
+  height: 100%;
+  min-height: 100%;
   font-family: 'Special Elite', cursive;
+  position: relative;
 }
 /* WELCOME PAGE */
 .jumbotron{
   background-image: url('../images/typewriter.jpg');
   background-size: cover;
+  height: 100%;
   text-align: center;
 }
 
@@ -22,6 +26,7 @@ body{
 
 #how-typewriter{
   text-align: center;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
@@ -81,11 +86,32 @@ body{
   background-color: white;
 }
 
-#create-form{
+#create-story-form{
   background-color: rgb(242,230,182);
   padding: 30px;
 }
 
+/* SECTIONS PAGE */
+#sections-partial{
+  text-align: center;
+}
+
+#sections-row {
+  background-color: rgb(242,230,182);
+  padding-bottom: 50px;
+}
+
+.each-section{
+  border: 2px solid black;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: white;
+}
+
+.section-title{
+  font-size: 18px;
+}
 
 /* WRITE PAGE */
 #image-div {
