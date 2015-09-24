@@ -18,6 +18,7 @@
         alert("Thanks for signing up! Please log in to continue");
       }).catch(function(err){
         console.error(err);
+        alert("There was an error signing you up. Please try again.");
       });
     }
     //post to login
@@ -29,6 +30,7 @@
         localStorage['logged-in'] = 'true';
       }).catch(function(err){
         console.error(err);
+        alert("There was an error logging you in. Please check your credentials and try again.");
       });
     }
     //all to logout
