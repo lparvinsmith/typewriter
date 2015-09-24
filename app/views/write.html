@@ -1,45 +1,59 @@
-<h3>{{writeCtrl.title}}</h3> <!-- add section title -->
-<div id="prose-div">
-  <form name="proseForm">
-    <textarea id="prose-text" rows="10" cols="80" ng-model="writeCtrl.prose"></textarea> <!-- populate with current prose -->
+<h2 id="section-heading">{{writeCtrl.title}}</h2>
+<hr>
+
+<div id="drawing-board" class="row">
+  <form name="drawForm" class="col-md-8 col-md-offset-2" id="draw-form" ng-show="writeCtrl.drawFormShown">
+    <div class="tools">
+    Choose color:
+    </div>
+    <canvas id="colors_sketch" width="800" height="300"></canvas>
+    <script type="text/javascript">
+      $(function() {
+        $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
+          $('.tools').append("<a href='#colors_sketch' data-color='" + this + "' style=''><button style='background: " + this + "; width: 10px; height: 10px;'></button></a> ");
+        });
+        $.each([3, 5, 10, 15], function() {
+          $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
+        });
+        $('#colors_sketch').sketch();
+      });
+    </script>
     <br>
-    <button ng-click="writeCtrl.update(writeCtrl.sectionId)">Save</button>
+    <button ng-click="writeCtrl.createDrawing()" class="btn btn-default">Save drawing</button>
+    <a href="#colors_sketch" data-download="png" class="btn btn-default">Download drawing</a>
   </form>
 </div>
 
-<div id="image-div">
-  <div ng-repeat="image in writeCtrl.images">
-      <img ng-src="{{image.location}}" ng-class="{ 'show-image': image.shown, 'thumbnail': !image.shown }" ng-click="writeCtrl.toggleImage(image.id)"/>
-      <!-- how to view when you click? -->
-      <!-- truncate filepath to display? -->
+<div class="row" id="write-row">
+  <div id="prose-div" class="col-md-7">
+    <form name="proseForm">
+      This text area can be resized to fit your writing needs.
+      <textarea id="prose-text" rows="10" cols="80" ng-model="writeCtrl.prose"></textarea>
+      <br>
+      <button ng-click="writeCtrl.update(writeCtrl.sectionId)" class="btn btn-default">Save</button>
+    </form>
   </div>
 
-  <img ng-src="{{writeCtrl.image}}">
-
-  <form name="imageForm">
-    <input type="file" file-input-model="writeCtrl.image">
-    <button ng-click="writeCtrl.create(writeCtrl.image)">Save image</button>
-    <button ng-click="writeCtrl.toggleDrawForm()">Draw something!</button>
-    <br>
-
-    <div id="draw" ng-show="writeCtrl.drawFormShown">
-      <div class="tools">
-        <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+  <div id="image-div" class="col-md-4 col-md-offset-1">
+    Your images:
+    <div ng-repeat="image in writeCtrl.images">
+      <div class="each-image">
+        <img ng-src="{{image.location}}" ng-class="{ 'show-image': image.shown, 'thumbnail': !image.shown }" ng-click="writeCtrl.toggleImage(image.id)"/>
       </div>
-      <canvas id="colors_sketch" width="800" height="300"></canvas>
-      <script type="text/javascript">
-        $(function() {
-          $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
-            $('.tools').append("<a href='#colors_sketch' data-color='" + this + "' style=''><button style='background: " + this + "; width: 10px; height: 10px;'></button></a> ");
-          });
-          $.each([3, 5, 10, 15], function() {
-            $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
-          });
-          $('#colors_sketch').sketch();
-        });
-      </script>
-      <button ng-click="writeCtrl.createDrawing()">Save drawing</button>
     </div>
 
-  </form>
+    <img ng-src="{{writeCtrl.image}}">
+
+    <div id="initiate-image">
+      <br>
+      <button ng-click="writeCtrl.toggleUploadForm()" class="btn btn-default">Upload an image</button>
+      <button ng-click="writeCtrl.toggleDrawForm()" class="btn btn-default">Draw something!</button>
+    </div>
+
+    <form name="imageUploadForm" ng-show="writeCtrl.uploadFormShown">
+      <input type="file" file-input-model="writeCtrl.image">
+      <button ng-click="writeCtrl.create(writeCtrl.image)" class="btn btn-default">Save image</button>
+    </form>
+  </div>
+
 </div>

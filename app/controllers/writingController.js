@@ -15,6 +15,14 @@
       vm.drawFormShown = !vm.drawFormShown;
     }
 
+    vm.toggleUploadForm = function(){
+      vm.uploadFormShown = !vm.uploadFormShown;
+    }
+
+    vm.toggleImageButtons = function(){
+      vm.imageButtonsHidden = !vm.imageButtonsHidden;
+    }
+
     vm.toggleImage = function(id){
       for (var i = 0; i < vm.images.length; i++) {
         if (vm.images[i].id === id) {

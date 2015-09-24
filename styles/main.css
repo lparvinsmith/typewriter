@@ -121,12 +121,28 @@ body{
 }
 
 /* WRITE PAGE */
-#image-div {
-  position: relative;
-  float: right;
+#section-heading {
+  text-align: center;
 }
+
+#draw-form{
+  margin-bottom: 50px;
+}
+
+#image-div {
+
+}
+
+#initiate-image {
+  clear: both;
+}
+
 canvas {
   border: 5px solid black;
+}
+
+.each-image{
+  float: left;
 }
 
 .thumbnail {
