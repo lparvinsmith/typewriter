@@ -42,15 +42,15 @@
       </div>
     </div>
 
-    <img ng-src="{{writeCtrl.image}}">
-
     <div id="initiate-image">
       <br>
       <button ng-click="writeCtrl.toggleUploadForm()" class="btn btn-default">Upload an image</button>
       <button ng-click="writeCtrl.toggleDrawForm()" class="btn btn-default">Draw something!</button>
     </div>
 
-    <form name="imageUploadForm" ng-show="writeCtrl.uploadFormShown">
+    <img id="image-preview" ng-src="{{writeCtrl.image}}">
+
+    <form name="imageUploadForm" id="upload-form" ng-show="writeCtrl.uploadFormShown">
       <input type="file" file-input-model="writeCtrl.image">
       <button ng-click="writeCtrl.create(writeCtrl.image)" class="btn btn-default">Save image</button>
     </form>

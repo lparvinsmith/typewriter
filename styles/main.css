@@ -130,7 +130,9 @@ body{
 }
 
 #image-div {
-
+  background-color: rgb(242,230,182);
+  padding: 50px;
+  margin-top: 20px;
 }
 
 #initiate-image {
@@ -151,4 +153,15 @@ canvas {
 
 .show-image {
   width: 400px;
+}
+
+#image-preview {
+  margin-top: 20px;
+  width: 400px;
+}
+
+#upload-form {
+  border: 1px solid black;
+  margin-top: 20px;
+  padding: 10px;
 }
