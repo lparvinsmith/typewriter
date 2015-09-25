@@ -1,14 +1,19 @@
 (function sectionsFactoryIIFE(){
 
   var sa = 'https://limitless-basin-7360.herokuapp.com';
+  // var sa = 'http://localhost:3000';
 
   // Create a sections factory
   var sectionsFactory = function($http){
     var sectionsAPI = {};
+    sectionsAPI.story = {};
+    sectionsAPI.sections = [];
 
     sectionsAPI.getSections = function(storyId){
       // allow access to the list of sections
-      return  $http.get(sa + '/stories/' + storyId);
+      return  $http.get(sa + '/stories/' + storyId).then(function(result){
+        angular.copy(result.data.story, sectionsAPI.story);
+      });
     };
 
     sectionsAPI.createSection = function(storyId, section){

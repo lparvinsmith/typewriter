@@ -1,12 +1,13 @@
 (function writingControllerIIFE(){
 
-  var WritingController = function(writingFactory, appSettings, $routeParams){
+  var WritingController = function(writingFactory, appSettings, $routeParams, sectionsFactory){
     var vm = this;
     vm.appSettings = appSettings;
     vm.sortBy = "name";
     vm.reverse = false;
     var sectionId = $routeParams.sectionId;
     vm.sectionId = sectionId;
+    vm.story = sectionsFactory.story;
 
     vm.images = [];
     vm.currentImage = {};
@@ -54,6 +55,10 @@
       });
     }
 
+    var clearImage = function(){
+        vm.image = "";
+    };
+
     vm.create = function(){
       //get value from form and pass it to factory
       writingFactory.createImage(sectionId, {file: vm.image})
@@ -61,7 +66,7 @@
         // append resulting story to sections array
         vm.images.push(result.data);
         // clear form
-        vm.currentImage = {};
+        clearImage();
       })
     }
 
@@ -73,13 +78,13 @@
         // append resulting story to sections array
         vm.images.push(result.data);
         // clear form
-        vm.currentImage = {};
+        clearImage();
       })
     }
 
   }
 
-  WritingController.$inject = ["writingFactory", "appSettings", "$routeParams"];
+  WritingController.$inject = ["writingFactory", "appSettings", "$routeParams", "sectionsFactory"];
 
   angular.module("typewriterApp").controller("writingController", WritingController);
 })();
