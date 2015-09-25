@@ -1,4 +1,5 @@
-<h2 id="section-heading">{{writeCtrl.title}}</h2>
+<h2 id="section-heading">{{writeCtrl.story.title}} </h2>
+<h4>{{writeCtrl.title}}</h4>
 <hr>
 
 <div id="drawing-board" class="row">
@@ -21,6 +22,7 @@
     <br>
     <button ng-click="writeCtrl.createDrawing()" class="btn btn-default">Save drawing</button>
     <a href="#colors_sketch" data-download="png" class="btn btn-default">Download drawing</a>
+    <button ng-click="writeCtrl.toggleDrawForm()" class="btn btn-default">Hide canvas</button>
   </form>
 </div>
 
@@ -31,6 +33,7 @@
       <textarea id="prose-text" rows="10" cols="80" ng-model="writeCtrl.prose"></textarea>
       <br>
       <button ng-click="writeCtrl.update(writeCtrl.sectionId)" class="btn btn-default">Save</button>
+      <a href="#/story/{{writeCtrl.story.sections[0].StoryId}}" class="btn btn-default">Back to {{writeCtrl.story.title}}</a>
     </form>
   </div>
 
@@ -48,7 +51,7 @@
       <button ng-click="writeCtrl.toggleDrawForm()" class="btn btn-default">Draw something!</button>
     </div>
 
-    <img id="image-preview" ng-src="{{writeCtrl.image}}">
+    <img id="image-preview" ng-show="writeCtrl.image" ng-src="{{writeCtrl.image}}">
 
     <form name="imageUploadForm" id="upload-form" ng-show="writeCtrl.uploadFormShown">
       <input type="file" file-input-model="writeCtrl.image">

@@ -1,8 +1,8 @@
 <div id="sections-partial">
   <div id="stories-heading">
-    <h2>{{secCtrl.title}}</h2>
+    <h2>{{secCtrl.story.title}}</h2>
     <hr>
-    <h3>Total sections: {{secCtrl.sections.length}}</h3>
+    <h3>Total sections: {{secCtrl.story.sections.length}}</h3>
     Search for section by title: <input type="text" ng-model="sectionFilter.title"/>
     <hr>
   </div>
@@ -16,7 +16,7 @@
   </form>
 
   <div class="row" id="sections-row">
-    <div ng-repeat="section in secCtrl.sections | filter: sectionFilter">
+    <div ng-repeat="section in secCtrl.story.sections | filter: sectionFilter">
       <div class="each-section">
         <a ng-hide="story.editForm" href="#/write/{{section.id}}">
         <p class="section-title">{{section.title | uppercase }}</p>

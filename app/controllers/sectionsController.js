@@ -9,8 +9,9 @@
     vm.createFormShown = false;
     vm.updatedSection = {};
     vm.showUpdateForm = false;
+    vm.story = sectionsFactory.story;
 
-    vm.sections= [];
+
     // reflects the contents of the form, the current section
     vm.currentSection = {};
 
@@ -33,14 +34,7 @@
     }
 
     function init(){
-      sectionsFactory.getSections(storyId)
-      .then(function(result){
-        vm.sections = result.data.story.sections;
-        vm.title = result.data.story.title;
-      }, function(data, status, headers, config){
-        console.log("Error getting sections from the api");
-        alert("Error getting sections from the api");
-      });
+      sectionsFactory.getSections(storyId);
     }
 
     init();
