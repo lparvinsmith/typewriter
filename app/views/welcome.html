@@ -44,27 +44,27 @@
   </div>
 
   <div id="signup" class="col-md-2 col-md-offset-1">
-    <form name="signupForm" class="css-form">
+    <form name="signupForm" ng-submit="authCtrl.signup()" class="css-form" novalidate>
       <legend>Or sign up for a free account:</legend>
-      <input type="text" placeholder="email" ng-model="authCtrl.signupCredentials.email" name="signupEmail" minlength="5" maxlength="30"/>
+      <input type="text" placeholder="email" ng-model="authCtrl.signupCredentials.email" name="signupEmail" minlength="5" maxlength="30" required/>
         <div ng-messages="signupForm.signupEmail.$error">
           <span ng-message="minlength">Your email is too short.</span>
           <span ng-message="maxlength">Your email is too long.</span>
           <span ng-message="required">Your email is required.</span>
         </div>
-      <input type="password" placeholder="password" ng-model="authCtrl.signupCredentials.password" name="signupPassword" minlength="3" maxlength="13"/>
+      <input type="password" placeholder="password" ng-model="authCtrl.signupCredentials.password" name="signupPassword" minlength="3" maxlength="13" required/>
         <div ng-messages="signupForm.signupPassword.$error">
           <span ng-message="minlength">Your password should be at least 3 characters long.</span>
           <span ng-message="maxlength">Your password should be 13 characters or less.</span>
           <span ng-message="required">A password is required.</span>
         </div>
-      <input type="text" placeholder="name" ng-model="authCtrl.signupCredentials.name" name="signupName" minlength="1" maxlength="13"/>
+      <input type="text" placeholder="name" ng-model="authCtrl.signupCredentials.name" name="signupName" minlength="1" maxlength="13" required/>
         <div ng-messages="signupForm.signupName.$error">
           <span ng-message="minlength">Your name is somehow less than 1 character.</span>
           <span ng-message="maxlength">Your name is too long.</span>
           <span ng-message="required">Your name is required.</span>
         </div>
-      <button ng-click="authCtrl.signup()" class="btn btn-default auth-button">Sign up</button>
+      <button type="submit" ng-disabled="signupForm.$invalid" class="btn btn-default auth-button">Sign up</button>
     </form>
   </div>
 </div>
