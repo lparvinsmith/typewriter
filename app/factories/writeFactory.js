@@ -1,9 +1,7 @@
 (function writingFactoryIIFE(){
 
-  var sa = 'https://limitless-basin-7360.herokuapp.com';
-
-  // Create a sections factory
-  var writingFactory = function($http){
+  var writingFactory = function($http, appSettings){
+    var sa = appSettings.serverAddress;
     var writingAPI = {};
 
     // PROSE
@@ -32,7 +30,7 @@
     return writingAPI;
   };
 
-  writingFactory.$inject = ['$http'];
+  writingFactory.$inject = ['$http', 'appSettings'];
 
   angular.module('typewriterApp').factory('writingFactory', writingFactory);
 })();

@@ -1,9 +1,7 @@
 (function storiesFactoryIIFE(){
 
-  var sa = 'https://limitless-basin-7360.herokuapp.com';
-
-  // Create a stories factory
-  var storiesFactory = function($http){
+  var storiesFactory = function($http, appSettings){
+    var sa = appSettings.serverAddress;
     var storiesAPI = {};
 
     storiesAPI.getStories = function(){
@@ -30,7 +28,7 @@
     return storiesAPI;
   };
 
-  storiesFactory.$inject = ['$http'];
+  storiesFactory.$inject = ['$http', 'appSettings'];
 
   angular.module('typewriterApp').factory('storiesFactory', storiesFactory);
 })();
