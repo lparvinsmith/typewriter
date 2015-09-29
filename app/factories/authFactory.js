@@ -25,7 +25,8 @@
     userApi.login = function (credentials){
       return $http.post(sa + '/login', credentials).then(function(response){
         console.log(response); //do location redirect here
-        angular.copy(response.data, userApi.currentUser);
+        // angular.copy(response.data, userApi.currentUser);
+        userApi.getCurrentUser();
         $location.path('/');
         localStorage['logged-in'] = 'true';
       }).catch(function(err){
