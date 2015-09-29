@@ -1,10 +1,7 @@
 (function sectionsFactoryIIFE(){
 
-  var sa = 'https://limitless-basin-7360.herokuapp.com';
-  // var sa = 'http://localhost:3000';
-
-  // Create a sections factory
-  var sectionsFactory = function($http){
+  var sectionsFactory = function($http, appSettings){
+    var sa = appSettings.serverAddress;
     var sectionsAPI = {};
     sectionsAPI.story = {};
     sectionsAPI.sections = [];
@@ -35,7 +32,7 @@
     return sectionsAPI;
   };
 
-  sectionsFactory.$inject = ['$http'];
+  sectionsFactory.$inject = ['$http', 'appSettings'];
 
   angular.module('typewriterApp').factory('sectionsFactory', sectionsFactory);
 })();

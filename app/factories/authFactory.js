@@ -3,10 +3,8 @@
 
 (function authFactoryIIFE(){
 
-  var sa = 'https://limitless-basin-7360.herokuapp.com';
-  // var sa = 'http://localhost:3000';
-
-  var authFactory = function($http, $cookies, $location){
+  var authFactory = function($http, $cookies, $location, appSettings){
+    var sa = appSettings.serverAddress;
     var userApi = {};
     userApi.currentUser = {};
 
@@ -64,7 +62,7 @@
 
     return userApi;
   }
-  authFactory.$inject = ['$http', '$cookies', '$location'];
+  authFactory.$inject = ['$http', '$cookies', '$location', 'appSettings'];
 
   angular.module("typewriterApp").factory("authFactory", authFactory);
 })();
