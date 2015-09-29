@@ -15,13 +15,16 @@ body{
 
 #welcome-text{
   background-color: rgba(242,230,182,0.7);
+  border-radius: 6px;
   width: 60%;
   margin: 0 auto;
   margin-top: 400px;
 }
 
-#welcome-text button {
+.welcome-button {
   margin: 10px 0px;
+  background: none;
+  border: 2px solid black;
 }
 
 #how-typewriter{
@@ -48,6 +51,7 @@ body{
   border: 4px solid black;
   width: 300px;
   text-align: center;
+  border-radius: 6px;
 }
 
 #authentication{
@@ -57,6 +61,8 @@ body{
 
 .auth-button{
   margin: 10px;
+  background: none;
+  border: 2px solid black;
 }
 
 /* STORIES PAGE */
