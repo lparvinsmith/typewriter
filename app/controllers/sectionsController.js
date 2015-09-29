@@ -21,8 +21,8 @@
 
     //finds section's location within array
     function findSectionIndexById(id) {
-      for (var i = 0; i < vm.sections.length; i++) {
-        if (vm.sections[i].id === id) {
+      for (var i = 0; i < vm.story.sections.length; i++) {
+        if (vm.story.sections[i].id === id) {
           return i;
         }
       }
@@ -30,7 +30,7 @@
 
     vm.toggleUpdateForm = function(sectionId){
       var index = findSectionIndexById(sectionId);
-      vm.sections[index].editForm = !vm.sections[index].editForm;
+      vm.story.sections[index].editForm = !vm.story.sections[index].editForm;
     }
 
     function init(){
@@ -44,7 +44,7 @@
       sectionsFactory.createSection(storyId, vm.currentSection)
       .then(function(result){
         // append resulting section to sections array
-        vm.sections.push(result.data);
+        vm.story.sections.push(result.data);
         // clear form
         vm.currentSection = {};
       })
@@ -53,16 +53,16 @@
     vm.update = function(sectionId){
       //get value from form and pass it to factory
       var index = findSectionIndexById(sectionId);
-      sectionsFactory.updateSection(sectionId, vm.sections[index])
+      sectionsFactory.updateSection(sectionId, vm.story.sections[index])
       .then(function(results){
-        vm.sections[index] = results.data;
+        vm.story.sections[index] = results.data;
       });
     }
 
     vm.delete = function(sectionId){
       var index = findSectionIndexById(sectionId);
       sectionsFactory.deleteSection(sectionId).then(function(){
-        vm.sections.splice(index,1);
+        vm.story.sections.splice(index,1);
       })
     }
 
