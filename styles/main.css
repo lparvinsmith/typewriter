@@ -144,6 +144,18 @@ body{
   margin-bottom: 50px;
 }
 
+.color-btn {
+  margin-left: 10px;
+  width: 16px;
+  height: 15px;
+}
+
+#eraser {
+  float: right;
+  margin-right: 80px;
+  margin-bottom: 5px;
+}
+
 #image-div {
   background-color: rgb(242,230,182);
   padding: 50px;
