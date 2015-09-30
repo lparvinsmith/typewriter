@@ -109,6 +109,11 @@ body{
   text-align: center;
 }
 
+#create-section-form{
+  background-color: rgb(242,230,182);
+  padding: 30px;
+}
+
 #sections-row {
   background-color: rgb(242,230,182);
   padding-bottom: 50px;
@@ -120,6 +125,10 @@ body{
   margin: 0 auto;
   margin-top: 50px;
   background-color: white;
+}
+
+.each-section .btn {
+  margin-bottom: 10px;
 }
 
 .section-title{

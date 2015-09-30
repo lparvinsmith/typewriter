@@ -8,11 +8,11 @@
   </div>
 
   <!-- on click, reveals form -->
-  <button ng-click="secCtrl.toggleCreateForm()">Start a new section</button>
-  <form name="sectionForm" class="css-form" ng-show="secCtrl.createFormShown">
+  <button ng-click="secCtrl.toggleCreateForm()" class="btn btn-default">Start a new section</button>
+  <form name="sectionForm" id="create-section-form" class="css-form" ng-show="secCtrl.createFormShown">
     <input ng-model="secCtrl.currentSection.title" type="text" placeholder="Title"/><br>
     <textarea ng-model="secCtrl.currentSection.overview"placeholder="Overview" rows="4" cols="50"></textarea><br>
-    <button ng-click="secCtrl.create()">Create</button>
+    <button ng-click="secCtrl.create()" class="btn btn-default">Create</button>
   </form>
 
   <div class="row" id="sections-row">
@@ -26,13 +26,13 @@
         <p>Updated: {{section.updatedAt | date}}</p>
         </a>
         <br>
-        <button ng-click="secCtrl.toggleUpdateForm(section.id)">Edit</button>
+        <button ng-click="secCtrl.toggleUpdateForm(section.id)" class="btn btn-default">Edit</button>
           <form name="storyForm" class="css-form" ng-show="section.editForm">
             <input ng-model="section.title" type="text"/><br>
             <textarea ng-model="section.overview" rows="4" cols="50"/></textarea><br>
-            <button ng-click="secCtrl.update(section.id)">Update</button><br>
+            <button ng-click="secCtrl.update(section.id)" class="btn btn-default">Update</button><br>
           </form>
-        <button ng-click="secCtrl.delete(section.id)">Delete</button> <!-- maybe should get 'are you sure?' -->
+        <button ng-click="secCtrl.delete(section.id)" class="btn btn-default">Delete</button> <!-- maybe should get 'are you sure?' -->
       </div>
     </div>
   </div>
