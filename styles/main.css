@@ -109,6 +109,11 @@ body{
   text-align: center;
 }
 
+#create-section-form{
+  background-color: rgb(242,230,182);
+  padding: 30px;
+}
+
 #sections-row {
   background-color: rgb(242,230,182);
   padding-bottom: 50px;
@@ -122,6 +127,10 @@ body{
   background-color: white;
 }
 
+.each-section .btn {
+  margin-bottom: 10px;
+}
+
 .section-title{
   font-size: 18px;
 }
@@ -133,6 +142,18 @@ body{
 
 #draw-form{
   margin-bottom: 50px;
+}
+
+.color-btn {
+  margin-left: 10px;
+  width: 16px;
+  height: 15px;
+}
+
+#eraser {
+  float: right;
+  margin-right: 80px;
+  margin-bottom: 5px;
 }
 
 #image-div {

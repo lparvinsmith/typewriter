@@ -6,12 +6,13 @@
   <form name="drawForm" class="col-md-8 col-md-offset-2" id="draw-form" ng-show="writeCtrl.drawFormShown">
     <div class="tools">
     Choose color:
+    <a href="#colors_sketch" data-tool="eraser" id="eraser" class="btn btn-default">Erase canvas</a>
     </div>
     <canvas id="colors_sketch" width="800" height="300"></canvas>
     <script type="text/javascript">
       $(function() {
         $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
-          $('.tools').append("<a href='#colors_sketch' data-color='" + this + "' style=''><button style='background: " + this + "; width: 10px; height: 10px;'></button></a> ");
+          $('.tools').append("<a href='#colors_sketch' data-tool='marker' data-color='" + this + "' style=''><button class='color-btn' style='background: " + this + ";'></button></a> ");
         });
         $.each([3, 5, 10, 15], function() {
           $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
@@ -29,7 +30,7 @@
 <div class="row" id="write-row">
   <div id="prose-div" class="col-md-7">
     <form name="proseForm">
-      This text area can be resized to fit your writing needs.
+      <small> This text area can be resized to fit your writing needs.</small>
       <textarea id="prose-text" rows="10" cols="80" ng-model="writeCtrl.prose"></textarea>
       <br>
       <button ng-click="writeCtrl.update(writeCtrl.sectionId)" class="btn btn-default">Save</button>
@@ -51,12 +52,13 @@
       <button ng-click="writeCtrl.toggleDrawForm()" class="btn btn-default">Draw something!</button>
     </div>
 
-    <img id="image-preview" ng-show="writeCtrl.image" ng-src="{{writeCtrl.image}}">
-
     <form name="imageUploadForm" id="upload-form" ng-show="writeCtrl.uploadFormShown">
       <input type="file" file-input-model="writeCtrl.image">
       <button ng-click="writeCtrl.create(writeCtrl.image)" class="btn btn-default">Save image</button>
     </form>
+
+    <img id="image-preview" ng-show="writeCtrl.image" ng-src="{{writeCtrl.image}}">
+
   </div>
 
 </div>
